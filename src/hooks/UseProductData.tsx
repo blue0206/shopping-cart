@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { Product } from "../interfaces";
+import { ProductType } from "../interfaces";
 
 type ApiResponseData = {
     category: string;
     description: string;
-} & Product;
+} & ProductType;
 
 type ProductsState = {
-    products: Array<Product>
+    products: Array<ProductType>
 }
 
 /**
@@ -19,7 +19,7 @@ type ProductsState = {
  * @returns {ProductsState} An object with a single property, `products`, which is an array of product objects.
  */
 function useProductData(): ProductsState {
-    const [products, setProducts] = useState<Array<Product>>([]);
+    const [products, setProducts] = useState<Array<ProductType>>([]);
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products?limit=35")
