@@ -31,7 +31,7 @@
 
 /* Button Styling */
 .heroText .button {
-    padding: 0.8rem 1.8rem;
+    padding: 0px;
     font-size: 1rem;
     color: white;
     background-color: #0061b0;
@@ -44,6 +44,22 @@
     opacity: 0;
     animation: fadeInUp 1s ease-in-out forwards;
     animation-delay: 0.5s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    flex-grow: 1;
+    
+    padding: 0.8rem 1.8rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.link:visited {
+    color: white;
 }
 
 .heroText .button:hover {
