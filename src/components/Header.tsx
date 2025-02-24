@@ -7,13 +7,13 @@ function Header(): ReactElement {
         <header className={styles.header}>
             <div className={styles.left}>
                 <nav className={styles.nav}>
-                    <NavLink className={styles.link}>Home</NavLink>
-                    <NavLink className={styles.link}>Shop</NavLink>
+                    <NavLink to="/" className={styles.link}>Home</NavLink>
+                    <NavLink to="/shop" className={styles.link}>Shop</NavLink>
                 </nav>
             </div>
             <div className={styles.right}>
                 <nav className={styles.nav}>
-                    <NavLink className={styles.link}>Cart</NavLink>
+                    <NavLink to="/cart" className={styles.link}>Cart</NavLink>
                 </nav>
             </div>
         </header>
