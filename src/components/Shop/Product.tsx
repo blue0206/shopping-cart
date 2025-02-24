@@ -3,7 +3,7 @@ import { Button, Input } from '../';
 
 type ProductProps = {
     title: string;
-    price: number;
+    price: string;
     image: string;
 }
 
