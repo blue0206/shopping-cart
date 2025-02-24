@@ -1,10 +1,21 @@
 import { ReactElement } from 'react';
-// import { NavLink } from 'react-router-dom';
-// Navigation Bar and Link from react-router-dom
+import { NavLink } from 'react-router-dom';
 
 function Header(): ReactElement {
     return (
-        <nav>HEADER</nav>
+        <header>
+            <div>
+                <nav>
+                    <NavLink>Home</NavLink>
+                    <NavLink>Shop</NavLink>
+                </nav>
+            </div>
+            <div>
+                <nav>
+                    <NavLink>Cart</NavLink>
+                </nav>
+            </div>
+        </header>
     );
 }
 
