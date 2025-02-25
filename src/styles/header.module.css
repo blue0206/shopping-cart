@@ -58,3 +58,13 @@
     background-color: hsl(0, 100%, 65%);
     color: aliceblue;
 }
+
+@media (max-width: 580px) {
+    .header {
+        padding: 16px;
+    }
+
+    .nav {
+        gap: 8px;
+    }
+}
