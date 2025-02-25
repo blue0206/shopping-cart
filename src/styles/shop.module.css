@@ -1,0 +1,15 @@
+.main {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.shopContainer {
+    width: 100%;
+    
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(251px, 1fr));
+    gap: 32px;
+    padding: 32px;
+    justify-content: space-evenly;
+}
