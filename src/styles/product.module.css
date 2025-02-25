@@ -1,0 +1,95 @@
+.product {
+    aspect-ratio: 1 / 1.5;
+
+    display: grid;
+    grid-template-rows: 1fr .85fr;
+
+    padding: 8px;
+    border-radius: 16px;
+    transition: box-shadow 0.2s ease;
+    transition: opacity 0.2s, ease;
+    transition: transform 0.2s ease;
+
+    cursor: pointer;
+}
+.product:hover {
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: inherit;
+}
+
+.image {
+    flex-grow: 1;
+    aspect-ratio: 1 / 1.15;
+    mix-blend-mode: multiply;
+    border-radius: 16px;
+}
+
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 1.2rem;
+    max-width: 100%;
+    height: calc(1.5 * 1em * 2);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.price {
+    align-self: center;
+    font-weight: bold;
+    color: #2b2b2b;
+}
+.price::before {
+    content: '$';
+}
+
+.quantity {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px;
+}
+.qtySpin {
+    border-radius: 5px;
+    padding: 0.2rem 0.8rem;
+}
+.qtySpin:hover {
+    background-color: #d1d1d1c9;
+}
+.qtyInput {
+    height: calc(1.5 * 1em * 1);
+    width: 5ch;
+    text-align: center;
+    padding-left: 16px;
+}
+.qtyInput::-webkit-inner-spin-button {
+    visibility: hidden;
+}
+
+.add {
+    padding: 0.2rem 0.8rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #0061b0;
+
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.add:hover {
+    background-color: #092332;
+}
