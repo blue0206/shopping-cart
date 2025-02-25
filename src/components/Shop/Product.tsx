@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+import styles from '../../styles/product.module.css';
 import { Button, Input } from '../';
 
 type ProductProps = {
@@ -13,19 +14,19 @@ function Product({
     image
 }: ProductProps): ReactElement {
     return (
-        <div>
-            <div>
-                <img src={image} alt={`An image of ${title}`} />
+        <div className={styles.product}>
+            <div className={styles.imageContainer}>
+                <img className={styles.image} src={image} alt={`An image of ${title}`} />
             </div>
-            <div>
-                <h2>{title}</h2>
-                <div>{price}</div>
-                <div>
-                    <Button>-</Button>
-                    <Input type='number' />
-                    <Button>+</Button>
+            <div className={styles.detailsContainer}>
+                <h2 className={styles.title}>{title}</h2>
+                <div className={styles.price}>{price}</div>
+                <div className={styles.quantity}>
+                    <Button className={styles.qtySpin}>-</Button>
+                    <Input className={styles.qtyInput} type='number' />
+                    <Button className={styles.qtySpin}>+</Button>
                 </div>
-                <div>Add to Cart</div>
+                <Button className={styles.add}>Add to Cart</Button>
             </div>
         </div>
     );
