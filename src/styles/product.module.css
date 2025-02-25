@@ -4,7 +4,7 @@
     display: grid;
     grid-template-rows: 1fr .85fr;
 
-    padding: 8px;
+    padding: 26px;
     border-radius: 16px;
     transition: box-shadow 0.2s ease;
     transition: opacity 0.2s, ease;
