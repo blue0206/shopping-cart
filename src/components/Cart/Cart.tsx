@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { Header, Button } from "../";
 import CartItem from './CartItem';
 import styles from "../../styles/cart.module.css";
@@ -11,11 +11,15 @@ function Cart(): ReactElement {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const cartItems = useAppSelector(state => state.cart);
+    const [isVisible, setIsVisible] = useState(false);
 
     const handleOrder = () => {
-        alert("Thank you for shopping with us!");
-        dispatch(emptyCart());
-        navigate("/shop");
+        setIsVisible(true);
+        setTimeout(() => {
+            navigate("/");
+            setIsVisible(false);
+            dispatch(emptyCart());
+        }, 5000)
     }
 
     return (
@@ -60,6 +64,15 @@ function Cart(): ReactElement {
                         >
                             Place Order
                         </Button>
+                    </div>
+                )
+            }
+            {
+                isVisible && (
+                    <div className={styles.popup}>
+                        <div className={styles.popupText}>
+                            Thank you for shopping with us!
+                        </div>
                     </div>
                 )
             }
