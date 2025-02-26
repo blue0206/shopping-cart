@@ -35,7 +35,7 @@
 }
 
 .right > .nav {
-    gap: 0px;
+    gap: 5px;
     justify-content: center;
     align-items: center;
 }
@@ -50,8 +50,6 @@
 }
 
 .items {
-    /* visibility: hidden; */
-
     height: 65%;
     border-radius: 100%;
     aspect-ratio: 1 / 1;
