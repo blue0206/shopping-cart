@@ -13,3 +13,39 @@
     padding: 32px;
     justify-content: space-evenly;
 }
+
+.loaderContainer {
+    height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    height: 88px;
+    aspect-ratio: 1 / 1;
+    border: 5px solid rgb(37, 81, 143);
+    border-radius: 50%;
+    border-style: dotted;
+    animation: spin 3.5s linear infinite;
+}
+
+.loaderText {
+    padding-left: 1ch;
+
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
