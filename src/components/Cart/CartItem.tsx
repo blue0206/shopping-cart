@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import { decrementQuantity } from "../../features/cart/cartSlice";
+import { incrementQuantity, decrementQuantity } from "../../features/cart/cartSlice";
 import { CartItem as CartItemProps } from "../../types";
 import { Button } from "../";
 
@@ -19,6 +19,12 @@ function CartItem({
             dispatch(decrementQuantity(id));
         }
     }
+
+    const handleIncrement = () => {
+        if (quantity >= 1 && quantity < 100) {
+            dispatch(incrementQuantity(id));
+        }
+    }
     
     return (
         <div>
@@ -35,7 +41,9 @@ function CartItem({
                             -
                         </Button>
                         <div>{quantity}</div>
-                        <Button>
+                        <Button 
+                            onClick={handleIncrement}
+                        >
                             +
                         </Button>
                     </div>
