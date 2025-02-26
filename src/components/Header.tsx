@@ -5,6 +5,7 @@ import { useAppSelector } from '../app/hooks';
 
 function Header(): ReactElement {
     const cartQuantity = useAppSelector(state => state.cart.length);
+    const itemCounterVisibility = cartQuantity > 0 ? "visible" : "hidden";
 
     return (
         <header className={styles.header}>
@@ -17,7 +18,10 @@ function Header(): ReactElement {
             <div className={styles.right}>
                 <nav className={styles.nav}>
                     <NavLink to="/cart" className={`${styles.link} ${styles.cart}`}></NavLink>
-                    <div className={styles.items}>
+                    <div 
+                        className={styles.items} 
+                        style={{visibility: itemCounterVisibility}}
+                    >
                         {cartQuantity}
                     </div>
                 </nav>
