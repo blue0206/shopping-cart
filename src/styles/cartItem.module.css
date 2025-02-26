@@ -1,0 +1,147 @@
+.item {
+    aspect-ratio: 4 / 1;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: .25fr .85fr .15fr;
+    grid-template-rows: 1fr;
+    gap: 16px;
+
+    padding: 26px;
+    border-radius: 16px;
+    transition: box-shadow 0.2s ease;
+    transition: opacity 0.2s, ease;
+    transition: transform 0.2s ease;
+
+    cursor: pointer;
+}
+
+.item:hover {
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: inherit;
+}
+
+.image {
+    flex-grow: 1;
+    aspect-ratio: 1 / 1.15;
+    mix-blend-mode: multiply;
+    border-radius: 16px;
+}
+
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 16px;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 1.2rem;
+    max-width: 100%;
+    height: calc(1.5 * 1em * 2);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.options {
+    display: flex;
+    gap: 16px;
+}
+
+.qty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: white;
+    border-radius: 11px;
+    padding-inline: 0.2rem;
+}
+
+.qtySpin {
+    border-radius: 5px;
+    padding: 0.2rem 0.8rem;
+}
+.qtySpin:hover {
+    background-color: #d1d1d1c9;
+}
+
+.price {
+    font-weight: bold;
+    color: #2b2b2b;
+}
+
+.remove {
+    padding: 0.2rem 0.8rem;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #c44949;
+    transition: background-color 0.2s ease;
+}
+.remove:hover {
+    background-color: #6e1d1d;
+}
+
+@media (max-width: 800px) {
+    .item {
+        aspect-ratio: 3.5 / 1;
+        width: 100%;
+
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1.25fr;
+        grid-template-areas: 'image title' 'image price';
+        gap: 5px;
+        padding: 8px;
+    }
+    .item:hover {
+        transform: scale(1);
+    }
+
+    .imageContainer {
+        grid-area: image;
+
+        width: 35vw;
+    }
+
+    .image {
+        aspect-ratio: 1 / 1.25;
+        height: 100%;
+    }
+
+    .detailsContainer {
+        grid-area: title;
+
+        padding-bottom: 8px;
+        gap: 16px;
+    }
+
+    .title {
+        font-weight: 800;
+        font-size: .85rem;
+        max-width: 75%;
+        height: calc(1.5 * 1em * 2);
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .options {
+        gap: 8px;
+    }
+
+    .price {
+        grid-area: price;
+    }
+}
