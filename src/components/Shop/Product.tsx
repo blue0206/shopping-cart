@@ -2,7 +2,7 @@ import { ReactElement, useState } from 'react';
 import styles from '../../styles/product.module.css';
 import { Button, Input } from '../';
 import { useAppDispatch } from '../../app/hooks';
-import { addToCart } from '../../features/cart/cartSlice';
+import { addToCart, removeFromCart } from '../../features/cart/cartSlice';
 import { CartItem } from '../../types';
 
 type ProductProps = {
@@ -48,6 +48,10 @@ function Product({
             quantity
         }
         dispatch(addToCart(cartItem));
+    }
+
+    const handleDeleteFromCart = () => {
+        dispatch(removeFromCart(productId));
     }
 
     return (
