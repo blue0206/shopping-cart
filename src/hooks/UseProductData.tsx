@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ProductType } from "../interfaces";
+import { ProductType } from "../types";
 
 type ApiResponseData = {
     category: string;
@@ -7,7 +7,7 @@ type ApiResponseData = {
 } & ProductType;
 
 type ProductsState = {
-    products: Array<ProductType>
+    products: Array<ProductType>;
 }
 
 /**
