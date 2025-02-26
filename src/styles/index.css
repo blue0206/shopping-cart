@@ -61,5 +61,13 @@ body {
     min-height: 98vh;
     min-height: 100dvh;
 
-    background-color: aliceblue;
+    background-color: #f0f0f0;
+}
+
+.active {
+    background-color: rgb(98, 129, 156);
+}
+
+ul {
+    list-style: none;
 }
