@@ -13,7 +13,10 @@ export const cartSlice = createSlice({
         },
         removeFromCart: (state, action: PayloadAction<CartItem["id"]>) => {
             return state.filter(item => item.id !== action.payload);
-        }
+        },
+        incrementQuantity: (state, action: PayloadAction<CartItem["id"]>) => {
+            return state.map(item => (item.id === action.payload ? {...item, quantity: item.quantity + 1} : item));
+        },
     }
 });
 
