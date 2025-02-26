@@ -17,6 +17,9 @@ export const cartSlice = createSlice({
         incrementQuantity: (state, action: PayloadAction<CartItem["id"]>) => {
             return state.map(item => (item.id === action.payload ? {...item, quantity: item.quantity + 1} : item));
         },
+        decrementQuantity: (state, action: PayloadAction<CartItem["id"]>) => {
+            return state.map(item => (item.id === action.payload ? {...item, quantity: item.quantity - 1} : item));
+        }
     }
 });
 
