@@ -100,3 +100,9 @@
 .remove:hover {
     background-color: #6e1d1d;
 }
+
+@media (max-width: 580px) {
+    .product:hover {
+        transform: scale(1);
+    }
+}
