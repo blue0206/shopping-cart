@@ -79,17 +79,26 @@
     visibility: hidden;
 }
 
-.add {
+.add, .remove {
     padding: 0.2rem 0.8rem;
     font-size: 1rem;
     color: white;
-    background-color: #0061b0;
-
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
+
+.add {
+    background-color: #0061b0;
+}
 .add:hover {
     background-color: #092332;
+}
+
+.remove {
+    background-color: #c44949;
+}
+.remove:hover {
+    background-color: #6e1d1d;
 }
