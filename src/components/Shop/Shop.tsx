@@ -13,16 +13,23 @@ function Shop(): ReactElement {
             <Header />
             <div className={styles.shopContainer}>
                 {
-                    products && products.map((product: ProductType) => {
-                        return (
-                            <Product 
-                                key={product.id} 
-                                title={product.title} 
-                                price={product.price} 
-                                image={product.image} 
-                            />
-                        )
-                    })
+                    products.length === 0 ? (
+                        <div className={styles.loaderContainer}>
+                            <div className={styles.loader}></div>
+                            <h1 className={styles.loaderText}>Loading...</h1>
+                        </div>
+                    ) : (
+                        products.map((product: ProductType) => {
+                            return (
+                                <Product 
+                                    key={product.id} 
+                                    title={product.title} 
+                                    price={product.price} 
+                                    image={product.image} 
+                                />
+                            )
+                        })
+                    )
                 }
             </div>
         </div>
