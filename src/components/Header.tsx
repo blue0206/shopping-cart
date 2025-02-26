@@ -1,8 +1,10 @@
 import { ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from '../styles/header.module.css';
+import { useAppSelector } from '../app/hooks';
 
 function Header(): ReactElement {
+    const cartQuantity = useAppSelector(state => state.cart.length);
 
     return (
         <header className={styles.header}>
@@ -14,9 +16,10 @@ function Header(): ReactElement {
             </div>
             <div className={styles.right}>
                 <nav className={styles.nav}>
-                    <NavLink to="/cart" className={`${styles.link} ${styles.cart}`}>
-                        <div className={styles.items}></div>
-                    </NavLink>
+                    <NavLink to="/cart" className={`${styles.link} ${styles.cart}`}></NavLink>
+                    <div className={styles.items}>
+                        {cartQuantity}
+                    </div>
                 </nav>
             </div>
         </header>
