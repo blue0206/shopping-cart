@@ -71,7 +71,7 @@
 }
 .qtyInput {
     height: calc(1.5 * 1em * 1);
-    width: 5ch;
+    width: 8ch;
     text-align: center;
     padding-left: 16px;
 }
