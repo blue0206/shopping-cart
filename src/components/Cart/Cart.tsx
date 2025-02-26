@@ -30,9 +30,8 @@ function Cart(): ReactElement {
                     <ul className={styles.cartContainer}>
                         {
                             cartItems.map(item => (
-                                <li>
+                                <li key={item.id}>
                                     <CartItem 
-                                        key={item.id} 
                                         id={item.id} 
                                         title={item.title} 
                                         image={item.image} 
