@@ -12,6 +12,11 @@ type ProductProps = {
     image: string;
 }
 
+enum CartBtnState {
+    add = "add",
+    remove = "remove"
+}
+
 function Product({
     productId,
     title,
@@ -21,6 +26,7 @@ function Product({
 
     const dispatch = useAppDispatch();
     const [quantity, setQuantity] = useState(1);
+    const [btnState, setBtnState] = useState<CartBtnState>(CartBtnState.add);
 
     const handleIncrement = () => {
         if (quantity < 100 && quantity > 0) {
@@ -39,19 +45,21 @@ function Product({
         }
     }
 
-    const handleAddToCart = () => {
-        const cartItem: CartItem = {
-            id: productId,
-            title,
-            price,
-            image,
-            quantity
+    const handleCartOperation = () => {
+        if (btnState === CartBtnState.add) {
+            const cartItem: CartItem = {
+                id: productId,
+                title,
+                price,
+                image,
+                quantity
+            }
+            dispatch(addToCart(cartItem));
+            setBtnState(CartBtnState.remove);
+        } else {
+            dispatch(removeFromCart(productId));
+            setBtnState(CartBtnState.add);
         }
-        dispatch(addToCart(cartItem));
-    }
-
-    const handleDeleteFromCart = () => {
-        dispatch(removeFromCart(productId));
     }
 
     return (
@@ -83,10 +91,10 @@ function Product({
                     </Button>
                 </div>
                 <Button 
-                    className={styles.add} 
-                    onChange={handleAddToCart}
+                    className={styles[btnState]} 
+                    onClick={handleCartOperation}
                 >
-                    Add to Cart
+                    {btnState === CartBtnState.add ? "Add To Cart" : "Remove From Cart"}
                 </Button>
             </div>
         </div>
