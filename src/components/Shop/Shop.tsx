@@ -3,7 +3,7 @@ import styles from '../../styles/shop.module.css';
 import useProductData from '../../hooks/UseProductData';
 import { Header } from '../';
 import Product from './Product';
-import { ProductType } from '../../interfaces';
+import { ProductType } from '../../types';
 
 function Shop(): ReactElement {
     const { products } = useProductData();
@@ -23,6 +23,7 @@ function Shop(): ReactElement {
                             return (
                                 <Product 
                                     key={product.id} 
+                                    productId={product.id} 
                                     title={product.title} 
                                     price={product.price} 
                                     image={product.image} 
