@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import { incrementQuantity, decrementQuantity } from "../../features/cart/cartSlice";
+import { incrementQuantity, decrementQuantity, removeFromCart } from "../../features/cart/cartSlice";
 import { CartItem as CartItemProps } from "../../types";
 import { Button } from "../";
 
@@ -25,6 +25,10 @@ function CartItem({
             dispatch(incrementQuantity(id));
         }
     }
+
+    const handleRemove = () => {
+        dispatch(removeFromCart(id));
+    }
     
     return (
         <div>
@@ -48,7 +52,9 @@ function CartItem({
                         </Button>
                     </div>
                     <div>
-                        <Button>
+                        <Button 
+                            onClick={handleRemove} 
+                        >
                             Remove From Cart
                         </Button>
                     </div>
