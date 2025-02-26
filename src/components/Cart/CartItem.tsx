@@ -3,6 +3,7 @@ import { useAppDispatch } from "../../app/hooks";
 import { incrementQuantity, decrementQuantity, removeFromCart } from "../../features/cart/cartSlice";
 import { CartItem as CartItemProps } from "../../types";
 import { Button } from "../";
+import styles from "../../styles/cartItem.module.css";
 
 function CartItem({
     id,
@@ -31,21 +32,29 @@ function CartItem({
     }
     
     return (
-        <div>
-            <div>
-                <img src={image} alt={`An image of ${title}`} />
+        <div className={styles.item}>
+            <div className={styles.imageContainer}>
+                <img 
+                    src={image} 
+                    alt={`An image of ${title}`} 
+                    className={styles.image}
+                />
             </div>
-            <div>
-                <div>{title}</div>
-                <div>
-                    <div>
+            <div className={styles.detailsContainer}>
+                <div className={styles.title}>{title}</div>
+                <div className={styles.options}>
+                    <div className={styles.qty}>
                         <Button 
+                            className={styles.qtySpin} 
                             onClick={handleDecrement} 
                         >
                             -
                         </Button>
-                        <div>{quantity}</div>
+                        <div>
+                            {quantity}
+                        </div>
                         <Button 
+                            className={styles.qtySpin} 
                             onClick={handleIncrement}
                         >
                             +
@@ -53,15 +62,16 @@ function CartItem({
                     </div>
                     <div>
                         <Button 
+                            className={styles.remove} 
                             onClick={handleRemove} 
                         >
-                            Remove From Cart
+                            Remove
                         </Button>
                     </div>
                 </div>
             </div>
             <div>
-                <div>{price}</div>
+                <div className={styles.price}>${price}</div>
             </div>
         </div>
     )
