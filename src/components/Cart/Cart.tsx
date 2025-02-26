@@ -1,11 +1,22 @@
 import { ReactElement } from 'react';
 import { Header, Button } from "../";
 import CartItem from './CartItem';
-import { useAppSelector } from '../../app/hooks';
 import styles from "../../styles/cart.module.css";
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { emptyCart } from '../../features/cart/cartSlice';
+import { useNavigate } from 'react-router-dom';
 
 function Cart(): ReactElement {
+    
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
     const cartItems = useAppSelector(state => state.cart);
+
+    const handleOrder = () => {
+        alert("Thank you for shopping with us!");
+        dispatch(emptyCart());
+        navigate("/shop");
+    }
 
     return (
         <div>
@@ -29,7 +40,7 @@ function Cart(): ReactElement {
                         }
                         <li className={styles.totalContainer}>
                             <div>
-                                Grand Total
+                                Grand Total ({cartItems.reduce((acc, item) => acc + item.quantity, 0)} items)
                             </div>
                             <div>
                                 ${cartItems.reduce((acc, item) => acc + parseFloat(item.price) * item.quantity, 0).toFixed(2)}
@@ -43,7 +54,12 @@ function Cart(): ReactElement {
             {
                 cartItems.length > 0 && (
                     <div className={styles.order}>
-                        <Button className={styles.orderBtn}>Place Order</Button>
+                        <Button 
+                            className={styles.orderBtn} 
+                            onClick={handleOrder} 
+                        >
+                            Place Order
+                        </Button>
                     </div>
                 )
             }
