@@ -1,4 +1,6 @@
 import { ReactElement } from "react";
+import { useAppDispatch } from "../../app/hooks";
+import { decrementQuantity } from "../../features/cart/cartSlice";
 import { CartItem as CartItemProps } from "../../types";
 import { Button } from "../";
 
@@ -9,6 +11,14 @@ function CartItem({
     image,
     quantity
 }: CartItemProps): ReactElement {
+
+    const dispatch = useAppDispatch();
+
+    const handleDecrement = () => {
+        if (quantity > 1 && quantity <= 100) {
+            dispatch(decrementQuantity(id));
+        }
+    }
     
     return (
         <div>
@@ -19,7 +29,9 @@ function CartItem({
                 <div>{title}</div>
                 <div>
                     <div>
-                        <Button>
+                        <Button 
+                            onClick={handleDecrement} 
+                        >
                             -
                         </Button>
                         <div>{quantity}</div>
