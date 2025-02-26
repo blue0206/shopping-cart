@@ -1,18 +1,25 @@
 import { ReactElement, useState } from 'react';
 import styles from '../../styles/product.module.css';
 import { Button, Input } from '../';
+import { useAppDispatch } from '../../app/hooks';
+import { addToCart } from '../../features/cart/cartSlice';
+import { CartItem } from '../../types';
 
 type ProductProps = {
+    productId: string;
     title: string;
     price: string;
     image: string;
 }
 
 function Product({
+    productId,
     title,
     price,
     image
 }: ProductProps): ReactElement {
+
+    const dispatch = useAppDispatch();
     const [quantity, setQuantity] = useState(1);
 
     const handleIncrement = () => {
@@ -30,6 +37,17 @@ function Product({
         if (newQuantity > 0 && newQuantity <= 100) {
             setQuantity(newQuantity);
         }
+    }
+
+    const handleAddToCart = () => {
+        const cartItem: CartItem = {
+            id: productId,
+            title,
+            price,
+            image,
+            quantity
+        }
+        dispatch(addToCart(cartItem));
     }
 
     return (
@@ -60,7 +78,12 @@ function Product({
                         +
                     </Button>
                 </div>
-                <Button className={styles.add}>Add to Cart</Button>
+                <Button 
+                    className={styles.add} 
+                    onChange={handleAddToCart}
+                >
+                    Add to Cart
+                </Button>
             </div>
         </div>
     );
