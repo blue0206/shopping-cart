@@ -1,7 +1,8 @@
 import { ReactElement } from 'react';
-import { Header } from "../";
+import { Header, Button } from "../";
 import CartItem from './CartItem';
 import { useAppSelector } from '../../app/hooks';
+import styles from "../../styles/cart.module.css";
 
 function Cart(): ReactElement {
     const cartItems = useAppSelector(state => state.cart);
@@ -11,7 +12,7 @@ function Cart(): ReactElement {
             <Header />
             {
                 cartItems.length > 0 ? (
-                    <ol>
+                    <ul className={styles.cartContainer}>
                         {
                             cartItems.map(item => (
                                 <li>
@@ -26,9 +27,24 @@ function Cart(): ReactElement {
                                 </li>
                             ))
                         }
-                    </ol>
+                        <li className={styles.totalContainer}>
+                            <div>
+                                Grand Total
+                            </div>
+                            <div>
+                                ${cartItems.reduce((acc, item) => acc + parseFloat(item.price) * item.quantity, 0).toFixed(2)}
+                            </div>
+                        </li>
+                    </ul>
                 ) : (
-                    <div>The cart is empty.</div>
+                    <div className={styles.cartContainer}>The cart is empty.</div>
+                )
+            }
+            {
+                cartItems.length > 0 && (
+                    <div className={styles.order}>
+                        <Button className={styles.orderBtn}>Place Order</Button>
+                    </div>
                 )
             }
         </div>
