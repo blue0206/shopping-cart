@@ -4,7 +4,7 @@ import CartItem from './CartItem';
 import styles from "../../styles/cart.module.css";
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { emptyCart } from '../../features/cart/cartSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Cart(): ReactElement {
     
@@ -48,7 +48,7 @@ function Cart(): ReactElement {
                         </li>
                     </ul>
                 ) : (
-                    <div className={styles.cartContainer}>The cart is empty.</div>
+                    <div className={`${styles.cartContainer} ${styles.emptyText}`}>The cart is empty. Please add some items from the <Link to="/shop">Shop</Link></div>
                 )
             }
             {
