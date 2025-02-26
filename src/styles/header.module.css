@@ -1,11 +1,16 @@
 .header {
     display: flex;
     justify-content: space-between;
-    background-color: #003a69;
+    background-color: #003a69e9;
     color: white;
     font-weight: bold;
 
     padding: 32px;
+
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    backdrop-filter: blur(5px);
 }
 
 .nav {
