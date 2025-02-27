@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ProductType } from "../types";
+import { useNavigate } from "react-router-dom";
 
 type ApiResponseData = {
     category: string;
@@ -20,11 +21,13 @@ type ProductsState = {
  */
 function useProductData(): ProductsState {
     const [products, setProducts] = useState<Array<ProductType>>([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products?limit=35")
         .then(response => {
             if (!response.ok) {
+                navigate("/error");
                 throw new Error(response.statusText);
             }
             return response.json();
@@ -35,8 +38,11 @@ function useProductData(): ProductsState {
             price: product.price,
             image: product.image
         }))))
-        .catch(error => console.log(error));
-    }, [])
+        .catch(error => {
+            navigate("/error");
+            console.error(error);
+        });
+    }, [navigate])
     
     return {
         products
