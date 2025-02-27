@@ -7,13 +7,17 @@ I wanted to because I could just use Context API if I just wanted to avoid prop 
 
 [Live Preview](https://shopping-cart-two-ruddy.vercel.app/)
 
+I know using something like Redux Toolkit on an app as small as this is overkill, but I think there's
+nothing wrong with that. It was fun learning how to use it and I'm sure this knowledge would be useful 
+when working on bigger projects.
+
 I started off with the [Getting Started](https://redux-toolkit.js.org/introduction/getting-started) 
 guide provided by Redux Toolkit documentation. 
 And eventually, I ended up following the 
 [Fundamentals](https://redux.js.org/tutorials/fundamentals/part-1-overview) and 
 [Essentials](https://redux.js.org/tutorials/essentials/part-1-overview-concepts) tutorials and I am 
 so glad I did. They have made an amazing tutorial on their website. It is so easy to follow, and so
-well explained with example-apps and actual use-case!
+well explained with example-apps and actual use-case.  
 
 I also had the opportunity to explore JSDocs and I tried my best to document the code. I still don't know
 whether I should use it or not, but it really helps in understanding the codebase. It'll take some time before
