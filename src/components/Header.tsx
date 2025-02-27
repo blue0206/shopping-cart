@@ -30,13 +30,14 @@ function Header(): ReactElement {
             </div>
             <div className={styles.right}>
                 <nav className={styles.nav}>
-                    <NavLink to="/cart" className={`${styles.link} ${styles.cart}`}></NavLink>
-                    <div 
-                        className={styles.items} 
-                        style={{visibility: itemCounterVisibility}}
-                    >
-                        {cartQuantity}
-                    </div>
+                    <NavLink to="/cart" className={`${styles.link} ${styles.cart}`}>
+                        <div 
+                            className={styles.items} 
+                            style={{visibility: itemCounterVisibility}}
+                        >
+                            {cartQuantity}
+                        </div>
+                    </NavLink>
                 </nav>
             </div>
         </header>
