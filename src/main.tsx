@@ -6,6 +6,9 @@ import { store } from './app/store.ts';
 import { RouterProvider } from 'react-router-dom';
 import router from './routes.tsx';
 
+/**
+ * @description Main entry point of the application.
+ */
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
