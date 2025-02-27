@@ -5,6 +5,17 @@ import { Header } from '../';
 import Product from './Product';
 import { ProductType } from '../../types';
 
+
+/**
+ * Renders the shop component which displays a list of products fetched
+ * by the useProductData custom hook.
+ * 
+ * While the data is being fetched, a loading spinner is displayed. 
+ * Once the data is available, each product is rendered as a `Product` component,
+ * displaying its image, title, price, and allowing interaction for adding to cart.
+ * 
+ * @returns {ReactElement} The rendered shop component.
+ */
 function Shop(): ReactElement {
     const { products } = useProductData();
 
