@@ -79,10 +79,17 @@
 }
 
 .popupText {
+    height: calc(1.5 * 1em * 8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: #fff;
-    padding: 20px;
+    padding: 20px 32px;
+    margin-inline: 11px;
     border-radius: 5px;
     font-size: 1.25rem;
+    font-weight: bold;
 }
 
 @media (max-width: 800px) {
