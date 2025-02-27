@@ -5,6 +5,20 @@ import { CartItem as CartItemProps } from "../../types";
 import { Button } from "../";
 import styles from "../../styles/cartItem.module.css";
 
+/**
+ * Renders a cart item component that displays product details with the 
+ * functionality to adjust the quantity or remove the item from the cart.
+ * 
+ * @param {CartItemProps} props - The properties of the cart item, including:
+ * @param {string} props.id - The unique id of the cart item.
+ * @param {string} props.title - The title of the product.
+ * @param {string} props.price - The price of the product.
+ * @param {string} props.image - The image URL of the product.
+ * @param {number} props.quantity - The quantity of the product in the cart.
+ * 
+ * @returns {ReactElement} The rendered cart item component.
+ */
+
 function CartItem({
     id,
     title,
