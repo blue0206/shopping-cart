@@ -1,8 +1,8 @@
 import { ReactElement, useState } from 'react';
 import styles from '../../styles/product.module.css';
 import { Button, Input } from '../';
-import { useAppDispatch } from '../../app/hooks';
-import { addToCart, removeFromCart } from '../../features/cart/cartSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { addToCart, decrementQuantity, incrementQuantity, removeFromCart } from '../../features/cart/cartSlice';
 import { CartItem } from '../../types';
 
 type ProductProps = {
@@ -23,24 +23,35 @@ function Product({
     price,
     image
 }: ProductProps): ReactElement {
-
+    
+    const productInCart = useAppSelector(state => state.cart.find(item => item.id === productId));
     const dispatch = useAppDispatch();
-    const [quantity, setQuantity] = useState(1);
-    const [btnState, setBtnState] = useState<CartBtnState>(CartBtnState.add);
+    
+    const [quantity, setQuantity] = useState(productInCart ? productInCart.quantity : 1);
+    const [btnState, setBtnState] = useState<CartBtnState>(productInCart ? CartBtnState.remove : CartBtnState.add);
 
     const handleIncrement = () => {
         if (quantity < 100 && quantity > 0) {
+            if (productInCart) {
+                dispatch(incrementQuantity(productId));
+            }
             setQuantity(quantity + 1);
         }
     }
     const handleDecrement = () => {
         if (quantity > 1 && quantity <= 100) {
+            if (productInCart) {
+                dispatch(decrementQuantity(productId));
+            }
             setQuantity(quantity - 1);
         }
     }
     const handleQuantityInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newQuantity = parseInt(e.target.value)
         if (newQuantity > 0 && newQuantity <= 100) {
+            if (productInCart) {
+                dispatch(incrementQuantity(productId))
+            }
             setQuantity(newQuantity);
         }
     }
