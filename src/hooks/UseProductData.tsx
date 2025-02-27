@@ -12,11 +12,16 @@ type ProductsState = {
 }
 
 /**
- * A hook that fetches product data from the Fake Store API and returns a state object containing the products.
- * The products are stored in the component's state and updated whenever the component is reloaded.
- * The hook uses the useEffect hook to fetch the data when the component is mounted.
- * The useEffect hook ensures that the fetch operation only runs once, when the component is first mounted.
- * The hook returns an object with a single property, `products`, which is an array of product objects.
+ * Custom hook to fetch product data from the Fake Store API and manage it in a React component's state.
+ * 
+ * The hook initializes an empty array of products and updates this array with the fetched data from the API.
+ * If the API request fails, the user is redirected to an error page.
+ * 
+ * The data fetching is performed inside a `useEffect` hook, which ensures that the fetch operation only occurs once,
+ * when the component using this hook is first mounted.
+ * 
+ * The hook returns an object containing a single property, `products`, which is an array of product objects.
+ * 
  * @returns {ProductsState} An object with a single property, `products`, which is an array of product objects.
  */
 function useProductData(): ProductsState {
