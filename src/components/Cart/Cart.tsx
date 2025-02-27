@@ -6,6 +6,17 @@ import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { emptyCart } from '../../features/cart/cartSlice';
 import { useNavigate, Link } from 'react-router-dom';
 
+/**
+ * Renders the cart component which displays the items in the cart, 
+ * calculates the total price, and allows the user to place an order.
+ * 
+ * If the cart is empty, it displays a message with a link to the shop.
+ * 
+ * When the user places an order, it shows a popup with a countdown 
+ * and navigates to the home page after 5 seconds and empties the cart.
+ * 
+ * @returns {ReactElement} The cart component.
+ */
 function Cart(): ReactElement {
     
     const navigate = useNavigate();
@@ -25,7 +36,7 @@ function Cart(): ReactElement {
     }, [isVisible, timer]);
 
     const handleOrder = () => {
-        setTimer(5);
+        setTimer(5);    // Reset timer on subsequent orders.
         setIsVisible(true);
         setTimeout(() => {
             navigate("/");
