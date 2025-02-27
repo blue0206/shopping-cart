@@ -5,9 +5,7 @@ A basic shopping cart app using TypeScript, and React with Redux Toolkit and Rea
 I learned a lot in this project. I had the opportunity to explore Redux Toolkit. More like 
 I wanted to because I could just use Context API if I just wanted to avoid prop drilling.
 
-I'll share some of the things I learned along the way here:
-
-## What did I learn?
+[Live Preview](https://shopping-cart-two-ruddy.vercel.app/)
 
 I started off with the [Getting Started](https://redux-toolkit.js.org/introduction/getting-started) 
 guide provided by Redux Toolkit documentation. 
@@ -15,9 +13,7 @@ And eventually, I ended up following the
 [Fundamentals](https://redux.js.org/tutorials/fundamentals/part-1-overview) and 
 [Essentials](https://redux.js.org/tutorials/essentials/part-1-overview-concepts) tutorials and I am 
 so glad I did. They have made an amazing tutorial on their website. It is so easy to follow, and so
-well explained with projects and actual use-case!
-
-## Exploring JSDocs
+well explained with example-apps and actual use-case!
 
 I also had the opportunity to explore JSDocs and I tried my best to document the code. I still don't know
 whether I should use it or not, but it really helps in understanding the codebase. It'll take some time before
