@@ -2,10 +2,12 @@
 
 A basic shopping cart app using TypeScript, and React with Redux Toolkit and React Router.
 
+[Live Preview](https://shopping-cart-two-ruddy.vercel.app/)
+
 I learned a lot in this project. I had the opportunity to explore Redux Toolkit. More like 
 I wanted to because I could just use Context API if I just wanted to avoid prop drilling.
-
-[Live Preview](https://shopping-cart-two-ruddy.vercel.app/)
+I have done minimal styling because the focus here was to understand routing in React with
+React Router and using Redux Toolkit.
 
 I know using something like Redux Toolkit on an app as small as this is overkill, but I think there's
 nothing wrong with that. It was fun learning how to use it and I'm sure this knowledge would be useful 
@@ -29,7 +31,7 @@ I get used to it though.
 - Add products to the cart with adjustable quantity.
 - Remove products from the cart.
 - View the total price of items in the cart.
-- Simulate a checkout process by placing order.
+- Simulate a checkout process by placing order. (No payments and personal details section)
 
 ## Tech Stack
 
