@@ -6,6 +6,12 @@ import Cart from "./Cart/Cart";
 import ErrorDisplay from "./ErrorDisplay";
 import NotFound from "./NotFound";
 
+/**
+ * All components are exported here.
+ *
+ * @module Components
+ * @description This module exports all the components used in this application.
+ */
 export {
     Input,
     Button,
