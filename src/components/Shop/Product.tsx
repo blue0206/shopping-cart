@@ -17,6 +17,28 @@ enum CartBtnState {
     remove = "remove"
 }
 
+/**
+ * Renders a product component which displays the product image, title, price,
+ * and quantity. It conditionally renders button text to add the product to the 
+ * cart or remove it from the cart. The quantity can be incremented or decremented 
+ * using buttons, or manually input via the input field.
+ * 
+ * If the item has been added to cart, the quantity of the product in the cart is 
+ * displayed and directly updated using dispatch. 
+ * If the item hasn't been added to cart yet, then the quantity is initialized as 1
+ * and the local component state is used for updating the quantity.
+ *
+ * When the user clicks on the "Add To Cart" or "Remove From Cart" button, an action is 
+ * dispatched with the appropriate payload to add/remove the product to/from the cart.
+ * 
+ * @param {ProductProps} props The properties of the product.
+ * @param {string} props.productId The unique id of the product.
+ * @param {string} props.title The title of the product.
+ * @param {string} props.price The price of the product.
+ * @param {string} props.image The image URL of the product.
+ * 
+ * @returns {ReactElement} The rendered product component.
+ */
 function Product({
     productId,
     title,
