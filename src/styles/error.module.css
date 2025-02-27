@@ -1,0 +1,25 @@
+.main {
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    height: 85vh;
+}
+
+.errorBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    font-size: 4rem;
+    margin-bottom: 11px;
+}
+
+.text {
+    font-size: 1.25rem;
+    color: rgb(106, 106, 106);
+    font-style: italic;
+    font-weight: bold;
+}
