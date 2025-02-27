@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { Header, Button } from "../";
 import CartItem from './CartItem';
 import styles from "../../styles/cart.module.css";
@@ -12,8 +12,20 @@ function Cart(): ReactElement {
     const dispatch = useAppDispatch();
     const cartItems = useAppSelector(state => state.cart);
     const [isVisible, setIsVisible] = useState(false);
+    const [timer, setTimer] = useState(5);
+
+    useEffect(() => {
+        let interval: number;
+        if (isVisible && timer >= 0) {
+            interval = setInterval(() => {
+                setTimer(prevTime => prevTime - 1);
+            }, 1000);
+        }
+        return () => clearInterval(interval)
+    }, [isVisible, timer]);
 
     const handleOrder = () => {
+        setTimer(5);
         setIsVisible(true);
         setTimeout(() => {
             navigate("/");
@@ -70,7 +82,7 @@ function Cart(): ReactElement {
                 isVisible && (
                     <div className={styles.popup}>
                         <div className={styles.popupText}>
-                            Thank you for shopping with us!
+                            Thank you for shopping with us! Redirecting in {timer} seconds...
                         </div>
                     </div>
                 )
