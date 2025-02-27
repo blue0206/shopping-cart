@@ -2,6 +2,12 @@ import { ReactElement } from "react";
 import { Header } from ".";
 import styles from "../styles/notFound.module.css";
 
+/**
+ * Renders the NotFound component which displays a 404 error message.
+ * The component includes a header and a message.
+ * 
+ * @returns {ReactElement} The rendered NotFound component.
+ */
 function NotFound(): ReactElement {
     return (
         <div className={styles.main}>
