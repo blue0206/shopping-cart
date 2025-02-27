@@ -3,6 +3,14 @@ import { Button, Header } from './components';
 import styles from "./styles/app.module.css";
 import { Link } from 'react-router-dom';
 
+/**
+ * The main application component which renders the home page with 
+ * a heading and a hero text with button.
+ *
+ * The button is a link to the shop page.
+ *
+ * @returns {ReactElement} The rendered home page component.
+ */
 function App(): ReactElement {
 
   return (
